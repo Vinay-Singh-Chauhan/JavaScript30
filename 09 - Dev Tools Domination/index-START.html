@@ -19,29 +19,55 @@
     }
 
     // Regular
-
+    console.log('hello')
+    
     // Interpolated
-
+    console.log('hello I am %s and I am from %s','vinay','chhatarpur')
+    
     // Styled
+    console.log('%c hello I am and I am from %s','color:blue','vinay')
 
     // warning!
-
+    console.warn('warning')
+    
     // Error :|
-
+    console.error('error')
+    
     // Info
+    console.info('info')
 
     // Testing
+    console.assert(false,'if assert condition fails this raises')
 
     // clearing
+    // console.clear()
 
     // Viewing DOM Elements
+    let p=document.getElementsByTagName('p')[0];
+    console.log(p);
+    console.dir(p);
 
     // Grouping together
+    dogs.forEach(e=>{
+      // console.group(e.name)
+      console.groupCollapsed(e.name)
+      console.log(`${e.name} is ${e.age} years old`);
+      console.groupEnd();
+    })
 
     // counting
+    console.count('wesbos')
 
     // timing
+    console.time('timer one');
+    setTimeout(() => {
+      console.log('fetching data')
+      console.timeEnd('timer one')
+    }, 5000);
 
+
+    // table
+    console.table(dogs)
   </script>
 </body>
 </html>
