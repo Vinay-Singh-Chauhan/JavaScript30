@@ -9,9 +9,20 @@
 
   <script>
     // start with strings, numbers and booleans
+    let age=100;
+    let age2=age;
+    console.log(age,age2);
+    age2=200;
+    console.log(age,age2);
+// there is copy incase of numbers, strings,booleans
 
     // Let's say we have an array
     const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
+    const team=players;
+    console.table(players,team);
+    team[3]='Lux';
+    console.table(players,team);
+// there is refrencing in case of arrays and objects
 
     // and we want to make a copy of it.
 
@@ -26,12 +37,13 @@
     // Why? It's because that is an array reference, not an array copy. They both point to the same array!
 
     // So, how do we fix this? We take a copy instead!
-
+    const team2=players.slice();
     // one way
-
+    const team3=[].concat(players);
     // or create a new array and concat the old one in
-
+    const team4=[...players] // but it may spread inner/nested objects/arrays
     // or use the new ES6 Spread
+
 
     // now when we update it, the original one isn't changed
 
@@ -46,10 +58,15 @@
     // and think we make a copy:
 
     // how do we take a copy instead?
-
+    const cap2=Object.assign({},person,{number:99,age:32});
+    console.log(cap2)
     // We will hopefully soon see the object ...spread
-
+    const cap3={...person}
     // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
+
+    // Object.assign is also shallow
+    // one way to deepcopy
+    const dev2=JSON.parse(JSON.stringify(person));
 
   </script>
 
