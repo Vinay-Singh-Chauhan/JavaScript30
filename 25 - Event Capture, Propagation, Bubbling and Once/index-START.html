@@ -43,7 +43,17 @@
 
 <button></button>
 <script>
+const divs=document.querySelectorAll('div');
+function logText(e){
+  console.log(this.classList.value);
+  e.stopPropagation();//stops event from travelling to next ..either bubble up or top down
 
+}
+
+divs.forEach(elem=>elem.addEventListener('click',logText,{
+   once: true,// it will unbind itself (remove) after trigerred once
+   capture:true//capture events on top down default value is false;
+}))
 </script>
 </body>
 </html>
